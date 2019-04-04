@@ -1,13 +1,14 @@
 var QuackScript = (cmd)=>{
-	if (cmd=='el') {
+	cmd=cmd.toLowerCase()
+	if (cmd=='el'||cmd=='element') {
 		return(a)=>{return document.createElement(a)}
-	} if (cmd=="*") {
+	} if (cmd=="*"||cmd=="html") {
 		return(d)=>{return document.querySelector(d)}
-	} if (cmd=='rand') {
+	} if (cmd=='rand'||cmd=='random') {
 		return(a,b)=>{a=a||1;b=b||0;return(Math.random()*a+b)}
-	} if (cmd=="qs") {
+	} if (cmd=="qs"||cmd=="quackscript") {
 		return(d)=>{return QuackScript(d)}
-	} if (cmd=='rnd') {
+	} if (cmd=='rnd'||cmd=='round') {
 		return(n)=>{return Number(n.toFixed(15))}
 	}
 	
