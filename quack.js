@@ -1,16 +1,19 @@
-var QuackScript = (cmd)=>{
-	cmd=cmd.toLowerCase()
-	if (cmd=='el'||cmd=='element') {
-		return(a)=>{return document.createElement(a)}
-	} if (cmd=="*"||cmd=="html") {
-		return(d)=>{return document.querySelector(d)}
-	} if (cmd=='rand'||cmd=='random') {
-		return(a,b)=>{a=a||1;b=b||0;return(Math.random()*a+b)}
-	} if (cmd=="qs"||cmd=="quackscript") {
-		return(d)=>{return QuackScript(d)}
-	} if (cmd=='rnd'||cmd=='round') {
-		return(n)=>{return Number(n.toFixed(15))}
+var construct = (cmd)=>{
+	cmd=cmd.split(';').filter((el)=>{return el!=""&&el!="↵";});
+	for (i=0;i<cmd.length;i++) {
+		cmd[i]=cmd[i].replace('↵','').replace('\n','').trim();
+		cmd[i]=cmd[i]
+		.replace('Btn()', 'document.createElement("button")')
+		.replace('$(','document.querySelector(')
+		.replace('Div()', 'document.createElement("div")')
+		.replace('.show()','.style.display="block"')
+		.replace('.hide()','.style.display="none"')
+		.replace('.dspl','.style.display')
+		.replace('.bg','.style.backgroundColor')
+		.replace('.text','.innerText')
+		.replace('~(','function(')
+		.replace('.ael(','.addEventListener(');
+		window.eval(cmd[i])
 	}
-	
 };
-q=(d)=>{return QuackScript(d)}
+var QuackScript = (cmd)=>{return construct(cmd)},q=QuackScript;
