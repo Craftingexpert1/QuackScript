@@ -6,4 +6,10 @@ Do this:
 
 <code><script src="https://cdn.jsdelivr.net/gh/Craftingexpert1/quackscript/quack.js"></script>
   
-<script type="text/quackscript"></code>
+<script type="text/quackscript">
+
+var hi is 'hi';
+console.log('hi')
+</script></code>
+
+
