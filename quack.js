@@ -16,4 +16,5 @@ var construct = (cmd)=>{
 		window.eval(cmd[i])
 	}
 };
-var QuackScript = (cmd)=>{return construct(cmd)},q=QuackScript;
+var q=(cmd)=>{return construct(cmd)};
+q(document.querySelector('script[type="text/quackscript"]').textContent)
