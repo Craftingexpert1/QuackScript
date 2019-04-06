@@ -8,8 +8,10 @@ Do this:
   
 <script type="text/quackscript">
 
-var hi is 'hi';
-console.log('hi')
+var hi = 'hi';
+var btn = Btn();
+$('body').appendChild(btn)
+
 </script></code>
 
 
