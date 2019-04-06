@@ -14,4 +14,4 @@ $('body').appendChild(btn)
 
 </script></code>
 
-
+Everything in normal javascript works. And more.
